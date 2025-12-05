@@ -9,9 +9,10 @@ import { cn } from '@/lib/utils';
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
 
+const logoSize = 36;
 // Simple logo component for the navbar
 const Logo = () => {
-  return <Image src='/logo.png' alt='Ship Infra Project Logo' width={48} height={48} />;
+  return <Image src='/logo.png' alt='Ship Infra Project Logo' width={logoSize} height={logoSize} />;
 };
 
 // Hamburger icon component

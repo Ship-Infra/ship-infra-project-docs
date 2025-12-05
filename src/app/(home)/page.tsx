@@ -2,7 +2,6 @@
 
 import HeroScreen from '@/components/ui/shadcn-io/hero';
 import { Navbar01 } from '@/components/ui/shadcn-io/navbar-01';
-
 import { useRouter } from 'next/navigation';
 
 export default function Home() {

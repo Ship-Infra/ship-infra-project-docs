@@ -6,6 +6,7 @@ import {
   AnnouncementTag,
   AnnouncementTitle,
 } from '@/components/ui/shadcn-io/announcement';
+import Image from 'next/image';
 
 import Link from 'next/link';
 import type { FC } from 'react';
@@ -23,6 +24,8 @@ type HeroScreenProps = {
   secondaryActionLink?: string;
 };
 
+const logoSize = 128;
+
 const HeroScreen: FC<HeroScreenProps> = ({
   announcementTag,
   announcementTitle,
@@ -37,6 +40,9 @@ const HeroScreen: FC<HeroScreenProps> = ({
   <div className='relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background'>
     <div className='flex flex-col gap-16 px-8 py-24 text-center z-10'>
       <div className='flex flex-col items-center justify-center gap-8'>
+        <div className='flex flex-col items-center justify-center'>
+          <Image src='/logo.png' alt='Ship Infra Project Logo' width={logoSize} height={logoSize} />
+        </div>
         {announcementUrl && (
           <Link href={announcementUrl}>
             <Announcement>
