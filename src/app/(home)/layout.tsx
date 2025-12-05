@@ -3,8 +3,8 @@ import type { ReactNode } from 'react';
 import '../global.css';
 
 export const metadata: Metadata = {
-  title: 'Ship Infrastructure Project',
-  description: 'Learn Infrastructure by Doing',
+  title: 'Ship Infrastructure',
+  description: 'Open Source Project',
 };
 
 export default function RootLayout({
