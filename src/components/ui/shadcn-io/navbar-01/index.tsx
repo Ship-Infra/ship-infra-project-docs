@@ -2,6 +2,7 @@
 
 import { ThemeToggleGif } from '@/components/molecules/theme-toggle-gif/theme-toggle-gif';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 import { NavigationMenu } from '@/components/ui/navigation-menu';
 import { Popover, PopoverTrigger } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
@@ -10,7 +11,7 @@ import { useEffect, useRef, useState } from 'react';
 
 // Simple logo component for the navbar
 const Logo = () => {
-  return null; // TODO - Create Logo
+  return <Image src='/logo.png' alt='Ship Infra Project Logo' width={48} height={48} />;
 };
 
 // Hamburger icon component
@@ -157,6 +158,7 @@ export const Navbar01 = React.forwardRef<HTMLElement, Navbar01Props>(
                 <div className='text-2xl'>{logo}</div>
                 <span className='hidden font-bold text-xl sm:inline-block'>Ship Infra Project</span>
               </button>
+
               {/* Navigation menu */}
               {!isMobile && (
                 <NavigationMenu className='flex'>

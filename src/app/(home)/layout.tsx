@@ -5,6 +5,9 @@ import '../global.css';
 export const metadata: Metadata = {
   title: 'Ship Infrastructure',
   description: 'Open Source Project',
+  icons: {
+    icon: '/logo.svg',
+  },
 };
 
 export default function RootLayout({
