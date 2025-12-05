@@ -12,16 +12,18 @@ const inter = Inter({
 // eslint-disable-next-line no-undef
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
-    <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
-      <SettingsProvider>
-        <html lang='en' className={inter.className} suppressHydrationWarning>
-          <body className='flex flex-col min-h-screen'>
-            <RootProvider>
-              <PostHogProvider>{children}</PostHogProvider>
-            </RootProvider>
-          </body>
-        </html>
-      </SettingsProvider>
-    </ThemeProvider>
+    <RootProvider>
+      <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+        <SettingsProvider>
+          <html lang='en' className={inter.className} suppressHydrationWarning>
+            <body className='flex flex-col min-h-screen'>
+              <RootProvider>
+                <PostHogProvider>{children}</PostHogProvider>
+              </RootProvider>
+            </body>
+          </html>
+        </SettingsProvider>
+      </ThemeProvider>
+    </RootProvider>
   );
 }
