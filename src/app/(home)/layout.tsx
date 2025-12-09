@@ -5,8 +5,13 @@ import '../global.css';
 export const metadata: Metadata = {
   title: 'Ship Infrastructure',
   description: 'Open Source Project',
-  icons: {
-    icon: '/logo.svg',
+  openGraph: {
+    images: ['/opengraph-image.png'],
+    type: 'website',
+    url: 'https://ship-infra-project.viktorvasylkovskyi.com/',
+    title: 'Ship Infra Project',
+    description: 'Ship Infrastructure Open Source Project',
+    siteName: 'Ship Infra Project',
   },
 };
 
