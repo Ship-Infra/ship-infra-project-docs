@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   title: 'Terraform AWS Tutorial — Ship Infra Project',
   description: 'A Complete Hands-On Terraform AWS Tutorial Series for Engineers',
   openGraph: {
-    images: ['/opengraph-image.png'],
+    images: ['https://ship-infra-project.viktorvasylkovskyi.com/opengraph-image.png'],
     type: 'website',
     url: 'https://ship-infra-project.viktorvasylkovskyi.com/',
     title: 'Terraform AWS Tutorial — Ship Infra',

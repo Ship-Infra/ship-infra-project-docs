@@ -38,7 +38,7 @@ const HeroScreen: FC<HeroScreenProps> = ({
   secondaryActionLink,
 }) => (
   <div className='relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background'>
-    <div className='flex flex-col gap-16 px-8 py-24 text-center z-10'>
+    <div className='flex flex-col gap-16 px-8 py-24 text-center z-10 pointer-events-none'>
       <div className='flex flex-col items-center justify-center gap-8'>
         <div className='flex flex-col items-center justify-center'>
           <Image src='/logo.png' alt='Ship Infra Project Logo' width={logoSize} height={logoSize} />
@@ -53,7 +53,7 @@ const HeroScreen: FC<HeroScreenProps> = ({
         )}
         <h1 className='mb-0 text-balance font-medium text-2xl md:text-3xl xl:text-6xl'>{title}</h1>
         <p className='mt-0 mb-0 text-balance text-lg text-muted-foreground'>{description}</p>
-        <div className='flex items-center gap-2'>
+        <div className='flex items-center gap-2 pointer-events-auto'>
           <Button asChild size={'lg'}>
             <Link href={primaryActionLink}>{primaryActionText}</Link>
           </Button>

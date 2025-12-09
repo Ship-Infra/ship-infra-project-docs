@@ -5,18 +5,9 @@ import { useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
-type AnimationVariant = 
-  | 'circle' 
-  | 'circle-blur' 
-  | 'gif'
-  | 'polygon';
+type AnimationVariant = 'circle' | 'circle-blur' | 'gif' | 'polygon';
 
-type StartPosition = 
-  | 'center' 
-  | 'top-left' 
-  | 'top-right' 
-  | 'bottom-left' 
-  | 'bottom-right';
+type StartPosition = 'center' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
 export interface ThemeToggleButtonProps {
   theme?: 'light' | 'dark';
@@ -37,13 +28,12 @@ export const ThemeToggleButton = ({
   className,
   onClick,
 }: ThemeToggleButtonProps) => {
-  
   const handleClick = useCallback(() => {
     // Inject animation styles for this specific transition
     const styleId = `theme-transition-${Date.now()}`;
     const style = document.createElement('style');
     style.id = styleId;
-    
+
     // Generate animation CSS based on variant
     let css = '';
     const positions = {
@@ -53,13 +43,13 @@ export const ThemeToggleButton = ({
       'bottom-left': 'bottom left',
       'bottom-right': 'bottom right',
     };
-    
+
     if (variant === 'circle') {
       const cx = start === 'center' ? '50' : start.includes('left') ? '0' : '100';
       const cy = start === 'center' ? '50' : start.includes('top') ? '0' : '100';
       css = `
         @supports (view-transition-name: root) {
-          ::view-transition-old(root) { 
+          ::view-transition-old(root) {
             animation: none;
           }
           ::view-transition-new(root) {
@@ -81,7 +71,7 @@ export const ThemeToggleButton = ({
       const cy = start === 'center' ? '50' : start.includes('top') ? '0' : '100';
       css = `
         @supports (view-transition-name: root) {
-          ::view-transition-old(root) { 
+          ::view-transition-old(root) {
             animation: none;
           }
           ::view-transition-new(root) {
@@ -163,11 +153,11 @@ export const ThemeToggleButton = ({
         }
       `;
     }
-    
+
     if (css) {
       style.textContent = css;
       document.head.appendChild(style);
-      
+
       // Clean up animation styles after transition
       setTimeout(() => {
         const styleEl = document.getElementById(styleId);
@@ -176,33 +166,29 @@ export const ThemeToggleButton = ({
         }
       }, 3000);
     }
-    
+
     // Call the onClick handler if provided
     onClick?.();
   }, [onClick, variant, start, url, theme]);
 
   return (
     <Button
-      variant="outline"
+      variant='outline'
       size={showLabel ? 'default' : 'icon'}
       onClick={handleClick}
       className={cn(
-        'relative overflow-hidden transition-all',
+        'relative overflow-hidden transition-all cursor-pointer',
         showLabel && 'gap-2',
-        className
+        className,
       )}
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
     >
       {theme === 'light' ? (
-        <Sun className="h-[1.2rem] w-[1.2rem]" />
+        <Sun className='h-[1.2rem] w-[1.2rem]' />
       ) : (
-        <Moon className="h-[1.2rem] w-[1.2rem]" />
+        <Moon className='h-[1.2rem] w-[1.2rem]' />
       )}
-      {showLabel && (
-        <span className="text-sm">
-          {theme === 'light' ? 'Light' : 'Dark'}
-        </span>
-      )}
+      {showLabel && <span className='text-sm'>{theme === 'light' ? 'Light' : 'Dark'}</span>}
     </Button>
   );
 };
@@ -211,7 +197,7 @@ export const ThemeToggleButton = ({
 export const useThemeTransition = () => {
   const startTransition = useCallback((updateFn: () => void) => {
     if ('startViewTransition' in document) {
-      (document as any).startViewTransition(updateFn);
+      document.startViewTransition(updateFn);
     } else {
       updateFn();
     }
