@@ -54,7 +54,7 @@ const HeroScreen: FC<HeroScreenProps> = ({
         <h1 className='mb-0 text-balance font-medium text-2xl md:text-3xl xl:text-6xl'>{title}</h1>
         <p className='mt-0 mb-0 text-balance text-lg text-muted-foreground'>{description}</p>
         <div className='flex items-center gap-2'>
-          <Button asChild>
+          <Button asChild size={'lg'}>
             <Link href={primaryActionLink}>{primaryActionText}</Link>
           </Button>
           {secondaryActionLink && secondaryActionText && (
