@@ -24,3 +24,11 @@ yarn-error.log*
 .env*.local
 .vercel
 next-env.d.ts
+
+.terraform
+.env
+debug_dump
+terraform.tfstate
+terraform.tfstate.backup
+**/.aws-credentials
+.terraform.lock.hcl
