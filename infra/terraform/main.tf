@@ -28,3 +28,20 @@ resource "aws_route53domains_registered_domain" "main" {
     name = "ns2.vercel-dns.com"
   }
 }
+
+variable "vercel_cname_records" {
+  type = map(string)
+  default = {
+    www          = "ef382456d0a65bde.vercel-dns-017.com"
+  }
+}
+
+resource "aws_route53_record" "vercel_cname" {
+  for_each = var.vercel_cname_records
+
+  zone_id = aws_route53_zone.main.zone_id
+  name    = each.key
+  type    = "CNAME"
+  ttl     = 300
+  records = [each.value]
+}

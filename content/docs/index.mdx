@@ -42,6 +42,18 @@ Let's start from the basics and grow toward production: one file at a time.
 
 We are providing bare bones infrastructure for typical 3 layer application. This is not a tutorial on how to build secure, scalable, production ready infra. There are many more aspects to consider like monitoring, logging, autoscaling, backups, disaster recovery and so on. The goal here is to get you familiar with the core concepts of AWS and Terraform so you can build upon them.
 
+## 🧠 Ship Infra Demo — Running a Local SLM
+
+To demonstrate what this infrastructure setup can handle in practice, I built a small demo that runs a quantized Small Language Model (SLM) entirely on modest infrastructure - no GPUs and no managed AI services.
+
+The demo deploys a `FastAPI` service backed by `llama-cpp`, running a 0.5B-parameter model on plain CPU. The key point is not the model itself, but that the same lightweight infrastructure described in these docs is sufficient to run it reliably.
+
+### 👉 Demo repository:
+
+https://github.com/Ship-Infra/slm-llama-cpp-poc
+
+This setup is a good example of how far you can go with simple, well-structured infrastructure before needing GPUs, autoscaling, or managed AI platforms.
+
 ## Code Repository
 
 This is infrastructure as code tutorial, so the code of the infrastructure is available in this [GitHub repository](https://github.com/Ship-Infra/ship-infra-project). Feel free to clone it and follow along!
