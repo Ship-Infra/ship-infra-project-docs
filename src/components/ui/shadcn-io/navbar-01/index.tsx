@@ -136,27 +136,12 @@ export const Navbar01 = React.forwardRef<HTMLElement, Navbar01Props>(
         <div className='container mx-auto flex h-16 max-w-screen-2xl items-center justify-between gap-4'>
           {/* Left side */}
           <div className='flex items-center gap-2'>
-            {/* Mobile menu trigger */}
-            {isMobile && (
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    className='group h-9 w-9 hover:bg-accent hover:text-accent-foreground'
-                    variant='ghost'
-                    size='icon'
-                  >
-                    <HamburgerIcon />
-                  </Button>
-                </PopoverTrigger>
-              </Popover>
-            )}
             {/* Main nav */}
             <div className='flex items-center gap-6'>
               <button
                 onClick={(e) => e.preventDefault()}
                 className='flex items-center space-x-2 text-primary hover:text-primary/90 transition-colors cursor-pointer'
               >
-                <div className='text-2xl'>{logo}</div>
                 <span className='hidden font-bold text-xl sm:inline-block'>Ship Infra Project</span>
               </button>
 
