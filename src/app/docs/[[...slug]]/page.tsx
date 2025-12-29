@@ -4,6 +4,9 @@ import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
+import { Feedback } from '@/components/feedback';
+import { posthog } from 'posthog-js';
+import { onRateAction } from '@/hooks/getOctokit';
 
 // eslint-disable-next-line no-undef
 export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
@@ -25,6 +28,13 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
           })}
         />
       </DocsBody>
+      <Feedback
+        onRateAction={async (url, feedback) => {
+          'use server';
+          await posthog.capture('on_rate_docs', feedback);
+          return onRateAction(url, feedback);
+        }}
+      />
     </DocsPage>
   );
 }

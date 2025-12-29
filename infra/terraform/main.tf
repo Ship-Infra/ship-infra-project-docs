@@ -45,3 +45,20 @@ resource "aws_route53_record" "vercel_cname" {
   ttl     = 300
   records = [each.value]
 }
+
+variable "google_search_console_verification" {
+  type    = map(string)
+  default = {
+    "ship-infra.com" = "google-site-verification=37fahvmO36jDe089m5kdquBka3CODgvP11Gbj1x1QyA"
+  }
+}
+
+resource "aws_route53_record" "google_txt_verification" {
+  for_each = var.google_search_console_verification
+
+  zone_id = aws_route53_zone.main.zone_id
+  name    = each.key
+  type    = "TXT"
+  ttl     = 300
+  records = [each.value]
+}

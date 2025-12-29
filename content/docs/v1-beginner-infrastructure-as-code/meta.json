@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "index",
+    "core-web-app",
+    "terraform-best-practices",
+    "ssl-termination",
+    "security",
+    "database-rds",
+    "load_test",
+    "conclusion"
+  ]
+}

@@ -15,11 +15,11 @@ export default function Home() {
         <HeroScreen
           announcementTag='Latest'
           announcementTitle='Introducing Ship Infra Project v1.0'
-          announcementUrl='/docs'
+          announcementUrl='/docs/v1-beginner-infrastructure-as-code/'
           title='Learn Infrastructure by Doing'
           description='A Complete Hands-On Terraform AWS Tutorial Series for Engineers'
           primaryActionText='Open the Tutorials'
-          primaryActionLink='/docs'
+          primaryActionLink='/docs/v1-beginner-infrastructure-as-code/'
           // secondaryActionText='Learn more'
           // secondaryActionLink='#'
         />
