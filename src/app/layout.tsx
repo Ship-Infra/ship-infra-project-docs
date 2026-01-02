@@ -3,9 +3,9 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { SettingsProvider } from '@/contexts/settingsContext';
 import type { Metadata, Viewport } from 'next';
 import './global.css';
-import { Providers } from './providers';
 
 import localFont from 'next/font/local';
+import { PostHogProvider } from './posthog-provider';
 
 const montserratFont = localFont({
   src: [
@@ -75,7 +75,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
       <SettingsProvider>
         <html lang='en' className={montserratFont.className} suppressHydrationWarning>
           <body className='flex flex-col min-h-screen'>
-            <Providers>{children}</Providers>
+            <PostHogProvider>{children}</PostHogProvider>
           </body>
         </html>
       </SettingsProvider>
