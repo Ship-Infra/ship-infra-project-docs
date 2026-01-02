@@ -1,0 +1,63 @@
+'use client';
+
+import Link from 'next/link';
+import Image from 'next/image';
+import { Star, Menu, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/theme-toggle';
+import { useState } from 'react';
+
+// URLs
+const GITHUB_URL = 'https://github.com/Ship-Infra/ship-infra-project';
+
+// Text content
+const BRAND_NAME = 'Ship Infra';
+const LOGO_ALT = 'Ship Infra Logo';
+const STAR_BUTTON_TEXT = 'Star on GitHub';
+
+export function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className='sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
+      <div className='container mx-auto flex h-16 items-center justify-between px-4'>
+        <Link href='/' className='flex items-center gap-2'>
+          <Image src='/logo.png' alt={LOGO_ALT} width={42} height={42} />
+          <span className='font-bold text-lg'>{BRAND_NAME}</span>
+        </Link>
+
+        <div className='flex items-center gap-2'>
+          <ThemeToggle />
+          <Button asChild className='hidden sm:flex gap-2 min-h-[44px]'>
+            <a href={GITHUB_URL} target='_blank' rel='noopener noreferrer'>
+              <Star className='h-4 w-4' />
+              {STAR_BUTTON_TEXT}
+            </a>
+          </Button>
+          <Button
+            variant='ghost'
+            size='icon'
+            className='md:hidden min-h-[44px] min-w-[44px]'
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X className='h-5 w-5' /> : <Menu className='h-5 w-5' />}
+          </Button>
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      {mobileMenuOpen && (
+        <div className='md:hidden border-t border-border bg-background p-4'>
+          <nav className='flex flex-col gap-4'>
+            <Button asChild className='gap-2 min-h-[44px] w-full'>
+              <a href={GITHUB_URL} target='_blank' rel='noopener noreferrer'>
+                <Star className='h-4 w-4' />
+                {STAR_BUTTON_TEXT}
+              </a>
+            </Button>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+}

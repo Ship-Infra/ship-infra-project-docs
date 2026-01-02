@@ -3,8 +3,10 @@ import './global.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { PostHogProvider } from './posthog-provider';
 import { SettingsProvider } from '@/contexts/settingsContext';
+import type { Metadata, Viewport } from 'next';
+import './global.css';
+
 import localFont from 'next/font/local';
-import type { Metadata } from 'next/dist/lib/metadata/types/metadata-interface';
 
 const montserratFont = localFont({
   src: [
@@ -22,17 +24,49 @@ const montserratFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Terraform AWS Tutorial — Ship Infra Project',
-  description: 'A Complete Hands-On Terraform AWS Tutorial Series for Engineers',
+  title: 'Ship Infra - AWS Deployment Tutorials for Developers',
+  description:
+    'Learn to deploy apps on AWS with comprehensive tutorials. Open source infrastructure guides for modern developers.',
+  generator: 'Next.js',
+  keywords: ['AWS', 'deployment', 'infrastructure', 'tutorials', 'DevOps', 'open source'],
+  authors: [{ name: 'Viktor Vasylkovskyi' }],
   openGraph: {
-    images: ['https://ship-infra-project.viktorvasylkovskyi.com/opengraph-image.png'],
+    images: ['/opengraph-image.png'],
     type: 'website',
-    url: 'https://ship-infra-project.viktorvasylkovskyi.com/',
-    title: 'Terraform AWS Tutorial — Ship Infra',
+    url: 'https://ship-infra.com/',
+    title: 'Ship Infra - AWS Deployment Tutorials',
     description:
-      'Beginner-friendly Terraform AWS guide. Step-by-step tutorials to set up AWS infrastructure from scratch.',
-    siteName: 'Ship Infra Project',
+      'Learn to deploy apps on AWS with comprehensive tutorials. Open source infrastructure guides for modern developers.',
+    siteName: 'Ship Infra',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ship Infra - AWS Deployment Tutorials',
+    description: 'Learn to deploy apps on AWS with comprehensive tutorials.',
+  },
+  icons: {
+    icon: [
+      {
+        url: '/logo.png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/logo-dark-32x32.png',
+        media: '(prefers-color-scheme: dark)',
+      },
+      {
+        url: '/logo.svg',
+        type: 'image',
+      },
+    ],
+    apple: '/logo.png',
+  },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 // eslint-disable-next-line no-undef

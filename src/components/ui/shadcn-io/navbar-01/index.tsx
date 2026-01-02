@@ -4,7 +4,6 @@ import { ThemeToggleGif } from '@/components/molecules/theme-toggle-gif/theme-to
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { NavigationMenu } from '@/components/ui/navigation-menu';
-import { Popover, PopoverTrigger } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
@@ -75,7 +74,6 @@ export const Navbar01 = React.forwardRef<HTMLElement, Navbar01Props>(
   (
     {
       className,
-      logo = <Logo />,
       // logoHref = '#',
       // navigationLinks = defaultNavigationLinks,
       // signInText = 'Sign In',

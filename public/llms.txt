@@ -1,0 +1,18 @@
+# Ship Infra
+
+## About
+Ship Infra is an open source project with 8 comprehensive tutorials for deploying modern applications on AWS.
+
+## Tutorials
+1. Getting Started with AWS
+2. EC2 Instance Deployment
+3. S3 Storage & Static Hosting
+4. RDS Database Setup
+5. VPC & Networking
+6. Load Balancers & Auto Scaling
+7. CI/CD with CodePipeline
+8. Infrastructure as Code
+
+## Links
+- Documentation: https://www.ship-infra.com/docs
+- GitHub: https://github.com/Ship-Infra/ship-infra-project

@@ -1,29 +1,29 @@
 'use client';
 
-import HeroScreen from '@/components/ui/shadcn-io/hero';
-import { Navbar01 } from '@/components/ui/shadcn-io/navbar-01';
-import { useRouter } from 'next/navigation';
+import { Header } from '@/components/header';
+import { Hero } from '@/components/hero';
+import { ValueProposition } from '@/components/value-proposition';
+import { TargetAudience } from '@/components/target-audience';
+import { Differentiation } from '@/components/differentiation';
+import { Testimonials } from '@/components/testimonials';
+import { TutorialsSection } from '@/components/tutorials-section';
+import { CTASection } from '@/components/cta-section';
+import { Footer } from '@/components/footer';
 
 export default function Home() {
-  const router = useRouter();
   return (
-    <div>
-      <div>
-        <Navbar01 onCtaClick={() => router.push('/docs')} />
-      </div>
-      <div style={{ height: 'calc(100vh - 66px)' }}>
-        <HeroScreen
-          announcementTag='Latest'
-          announcementTitle='Introducing Ship Infra Project v1.0'
-          announcementUrl='/docs/v1-beginner-infrastructure-as-code/'
-          title='Learn Infrastructure by Doing'
-          description='A Complete Hands-On Terraform AWS Tutorial Series for Engineers'
-          primaryActionText='Open the Tutorials'
-          primaryActionLink='/docs/v1-beginner-infrastructure-as-code/'
-          // secondaryActionText='Learn more'
-          // secondaryActionLink='#'
-        />
-      </div>
+    <div className='min-h-screen'>
+      <Header />
+      <main>
+        <Hero sectionClassnames='' />
+        <ValueProposition sectionClassnames='bg-secondary/30 dark:bg-secondary/30 border-t border-border/40' />
+        <TargetAudience sectionClassnames='' />
+        <Differentiation sectionClassnames='bg-secondary/30 dark:bg-secondary/30 border-t border-border/40' />
+        <Testimonials sectionClassnames='' />
+        <TutorialsSection sectionClassnames='bg-secondary/30 dark:bg-secondary/30 border-t border-border/40' />
+        <CTASection sectionClassnames='' />
+      </main>
+      <Footer />
     </div>
   );
 }

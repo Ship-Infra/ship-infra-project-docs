@@ -20,15 +20,11 @@ async function getOctokit(): Promise<Octokit> {
     throw new Error('No GitHub keys provided for Github app, docs feedback feature will not work.');
   }
 
-  console.log('Creating GitHub App Octokit instance');
-  console.log('>>> App ID:', appId);
-  console.log('>>> Private Key:', privateKey);
   const app = new App({
     appId,
     privateKey,
   });
 
-  console.log('Requesting installation for repo:', owner, repo);
   const { data } = await app.octokit.request('GET /repos/{owner}/{repo}/installation', {
     owner,
     repo,
@@ -37,7 +33,6 @@ async function getOctokit(): Promise<Octokit> {
     },
   });
 
-  console.log('>>> data: ', data);
   instance = await app.getInstallationOctokit(data.id);
   return instance;
 }
@@ -119,7 +114,7 @@ export async function onRateAction(url: string, feedback: Feedback): Promise<Act
       discussion: { id: string; url: string };
     } = await octokit.graphql(`
             mutation {
-              createDiscussion(input: { repositoryId: "${destination.id}", categoryId: "${category!.id}", body: ${JSON.stringify(body)}, title: ${JSON.stringify(title)} }) {
+              createDiscussion(input: { repositoryId: "${destination.id}", categoryId: "${category?.id}", body: ${JSON.stringify(body)}, title: ${JSON.stringify(title)} }) {
                 discussion { id, url }
               }
             }`);
