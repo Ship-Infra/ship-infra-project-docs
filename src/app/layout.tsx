@@ -77,9 +77,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
         <SettingsProvider>
           <html lang='en' className={montserratFont.className} suppressHydrationWarning>
             <body className='flex flex-col min-h-screen'>
-              <RootProvider>
-                <PostHogProvider>{children}</PostHogProvider>
-              </RootProvider>
+              <PostHogProvider>{children}</PostHogProvider>
             </body>
           </html>
         </SettingsProvider>
