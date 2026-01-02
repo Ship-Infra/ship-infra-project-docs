@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 
 // URLs
-const DOCS_URL = 'https://www.ship-infra.com/docs';
+const DOCS_URL = 'https://www.ship-infra.com/docs/v1-beginner-infrastructure-as-code';
 
 // Section text
 const SECTION_TITLE = '8 Comprehensive Tutorials';
